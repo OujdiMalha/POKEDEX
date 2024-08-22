@@ -40,7 +40,7 @@ Route::get('/profile/{user}', [ProfileController::class, 'show'])->name('profile
 Route::get('/pokemon', [PokemonPublicController::class, 'index'])->name('pokemon.index');
 Route::get('/pokemon/{id}', [PokemonPublicController::class, 'show'])->name('pokemon.show');
 
-// Gestion des commentaires, uniquement pour les utilisateurs authentifiés
+// Gestion des commentairespour les utilisateurs connectés
 Route::middleware('auth')->group(function () {
     Route::post('/pokemon/{pokemon}/commentaires', [PokemonPublicController::class, 'addCommentaires'])->name('pokemon.commentaires.add');
     Route::delete('/pokemon/{pokemon}/commentaires/{commentaire}', [PokemonPublicController::class, 'deleteCommentaire'])->name('pokemon.commentaires.delete');

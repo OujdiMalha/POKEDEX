@@ -33,15 +33,15 @@ class PokemonPublicController extends Controller
         ]);
     }
 
-    public function addCommentaire(Request $request, Pokemon $pokemon)
+    public function addCommentaires(Request $request, Pokemon $pokemon)
     {
         $request->validate([
-            'body' => 'required|string|max:2000',
+            'body' => 'required|string|max:1000',
         ]);
 
         $commentaire = $pokemon->commentaires()->make();
         $commentaire->body = $request->input('body');
-        $commentaire->user_id = auth()->Auth::user()->id;
+        $commentaire->user_id = auth()->user()->id;
         $commentaire->save();
 
         return redirect()->back();
