@@ -2,8 +2,21 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-8">
         <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
             <div class="flex flex-col md:flex-row items-center md:items-start">
+                @php
+                    $images = [
+                    'Pikachu' => 'pokemon1.jpg',
+                    'Rondoudou' => 'pokemon2.jpg',
+                    'Salamèche' => 'pokemon3.jpg',
+                    'Miaouss' => 'pokemon4.jpg',
+                    'Bulbizarre' => 'pokemon5.jpg',
+                    'Carapuce' => 'pokemon6.jpg',
+                    ];
+                @endphp
+
                 <div class="md:w-1/3 flex justify-center">
-                    <img class="w-64 h-96 rounded-lg shadow-lg object-cover" src="{{ asset('storage/images/pokemon1.jpg') }}" alt="Pokemon Image">
+                    <img class="w-64 h-96 rounded-lg shadow-lg object-cover"
+                         src="{{ asset('storage/images/' . ($images[$pokemon->nom] ?? 'default.jpg')) }}"
+                         alt="Pokemon Image">
                 </div>
                 <div class="md:w-2/3 md:ml-8 mt-4 md:mt-0">
                     <h2 class="text-3xl font-bold text-yellow-500 mb-4">{{ $pokemon->nom }}</h2>
@@ -39,13 +52,13 @@
                                 </form>
                                 @endcan
                             </div>
-                            <div class="text-gray-300">
+                            <div class="text-black">
                                 {{ $commentaire->body }}
                             </div>
                         </div>
                     </div>
                 @empty
-                    <div class="bg-gray-900 rounded-md shadow p-4 text-gray-300">
+                    <div class="bg-gray-900 rounded-md shadow p-4 text-black">
                         pas encore de commentaire :/
                     </div>
                 @endforelse
@@ -64,7 +77,7 @@
                     </div>
                 </form>
                 @else
-                <div class="bg-gray-900 rounded-md shadow p-4 text-gray-300 flex justify-between items-center mt-4">
+                <div class="bg-gray-900 rounded-md shadow p-4 text-black flex justify-between items-center mt-4">
                     <span> Vous devez être connecté pour ajouter un commentaire </span>
                     <a href="{{ route('login') }}" class="font-bold bg-white text-gray-700 px-4 py-2 rounded shadow-md">Se connecter</a>
                 </div>

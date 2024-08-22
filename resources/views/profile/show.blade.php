@@ -26,7 +26,7 @@
                                     <p class="text-gray-300 text-sm"><strong>Poids:</strong> {{ $pokemon->poids }} kg</p>
                                     <p class="text-gray-300 text-sm"><strong>Taille:</strong> {{ $pokemon->taille }} m</p>
                                     <div class="mt-4">
-                                        <a href="{{ route('pokemon.show', $pokemon->id) }}" class="text-blue-500 hover:text-blue-700 font-semibold">En savoir plus</a>
+                                        <a href="{{ route('pokemon.show', $pokemon->id) }}" class="text-blue-500 hover:text-blue-700 font-semibold">Detaille..</a>
                                     </div>
                                 </div>
                             </div>

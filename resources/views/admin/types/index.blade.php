@@ -42,7 +42,7 @@
                 @foreach ($types as $type)
                     <tr>
                         <td class="border px-4 py-2">{{ $type->nom }}</td>
-                        <td class="border px-4 py-2">{{ $type->color }}</td>
+                        <td class="border px-4 py-2">{{ $type->couleur }}</td>
                         <td class="border px-4 py-2 flex">
                             <a href="{{ route('admin.types.edit', $type) }}" class="text-blue-500 mr-2">
                                 <x-heroicon-o-pencil class="w-5 h-5" />

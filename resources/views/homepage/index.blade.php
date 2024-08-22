@@ -1,5 +1,3 @@
-<!-- resources/views/homepage/index.blade.php -->
-
 <x-guest-layout>
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-8">
         <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
@@ -16,7 +14,7 @@
                         name="search"
                         id="search"
                         placeholder="Rechercher un Pokémon"
-                        class="flex-grow border border-gray-300 rounded shadow px-4 py-2 mr-4"
+                        class="flex-grow border border-gray-300 rounded shadow px-4 py-2 mr-4 bg-black text-white"
                         value="{{ request()->search }}"
                         autofocus
                     />
@@ -29,10 +27,27 @@
                 </div>
             </form>
 
+            @php
+                $images = [
+                    'Pikachu' => 'pokemon1.jpg',
+                    'Rondoudou' => 'pokemon2.jpg',
+                    'Salamèche' => 'pokemon3.jpg',
+                    'Miaouss' => 'pokemon4.jpg',
+                    'Bulbizarre' => 'pokemon5.jpg',
+                    'Carapuce' => 'pokemon6.jpg',
+                ];
+            @endphp
+
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 @foreach ($pokemon as $poke)
                 <div class="bg-gray-900 rounded-lg shadow-lg overflow-hidden">
-                    <div class="h-48 bg-cover bg-center" style="background-image: url('{{ asset('storage/' . $poke->image) }}')"></div>
+                    <div class="flex justify-center">
+                        <img
+                            class="w-64 h-96 rounded-lg shadow-lg object-cover"
+                            src="{{ asset('storage/images/' . ($images[$poke->nom] ?? 'default.jpg')) }}"
+                            alt="{{ $poke->nom }}"
+                        >
+                    </div>
                     <div class="p-4">
                         <h2 class="text-xl font-bold text-yellow-500">{{ $poke->nom }}</h2>
                         <p class="text-gray-300 text-sm"><strong>PV:</strong> {{ $poke->pv }}</p>
