@@ -31,6 +31,8 @@
                     'Miaouss' => 'pokemon4.jpg',
                     'Bulbizarre' => 'pokemon5.jpg',
                     'Carapuce' => 'pokemon6.jpg',
+                    'Butterfree' => 'pokemon7.jpg',
+                    'Charizad' => 'pokemon8.jpg',
                 ];
             @endphp
 

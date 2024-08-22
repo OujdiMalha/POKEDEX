@@ -10,6 +10,8 @@
                     'Miaouss' => 'pokemon4.jpg',
                     'Bulbizarre' => 'pokemon5.jpg',
                     'Carapuce' => 'pokemon6.jpg',
+                    'Butterfree' => 'pokemon7.jpg',
+                    'Charizad' => 'pokemon8.jpg',
                     ];
                 @endphp
 
@@ -40,9 +42,9 @@
                         </a>
                         <div class="flex flex-col justify-center w-full space-y-2">
                             <div class="flex justify-between items-center">
-                                <a href="{{ route('profile.show', $commentaire->user) }}" class="text-black">
+                                <a href="{{ route('profile.show', $commentaire->user) }}" class="text-white">
                                     <span class="font-bold">{{ $commentaire->user->name }}</span>
-                                    <span class="text-sm text-gray-500">{{ $commentaire->created_at->diffForHumans() }}</span>
+                                    <span class="text-sm text-white">{{ $commentaire->created_at->diffForHumans() }}</span>
                                 </a>
                                 @can('delete', $commentaire)
                                 <form method="POST" action="{{ route('pokemon.commentaires.delete', [$pokemon, $commentaire]) }}">
@@ -52,13 +54,13 @@
                                 </form>
                                 @endcan
                             </div>
-                            <div class="text-black">
+                            <div class="text-white">
                                 {{ $commentaire->body }}
                             </div>
                         </div>
                     </div>
                 @empty
-                    <div class="bg-gray-900 rounded-md shadow p-4 text-black">
+                    <div class="bg-gray-900 rounded-md shadow p-4 text-white">
                         pas encore de commentaire :/
                     </div>
                 @endforelse
@@ -77,7 +79,7 @@
                     </div>
                 </form>
                 @else
-                <div class="bg-gray-900 rounded-md shadow p-4 text-black flex justify-between items-center mt-4">
+                <div class="bg-gray-900 rounded-md shadow p-4 text-white flex justify-between items-center mt-4">
                     <span> Vous devez être connecté pour ajouter un commentaire </span>
                     <a href="{{ route('login') }}" class="font-bold bg-white text-gray-700 px-4 py-2 rounded shadow-md">Se connecter</a>
                 </div>
