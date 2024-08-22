@@ -18,11 +18,11 @@ class CreatePokemonTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->loginAs(User::find(1))
                     ->visit('/pokemon/create')
-                    ->type('nom', 'Evoli')
-                    ->type('pv', 100)
-                    ->type('poids', 6.5)
-                    ->type('taille', 0.3)
-                    ->press('Sauvgarder')
+                    ->type('#nom', 'Evoli')
+                    ->type('#pv', 100)
+                    ->type('#poids', 6.5)
+                    ->type('#taille', 0.3)
+                    ->press('@#save')
                     ->assertPathIs('/pokemon')
                     ->assertSee('Evoli');
 

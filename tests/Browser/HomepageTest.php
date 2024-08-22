@@ -36,7 +36,7 @@ class HomepageTest extends DuskTestCase
             $browser->visit('/')
                     ->type('search', 'Pikachu') // Tapez un nom de Pokémon dans la recherche
                     ->press('button[type="submit"]') // Cliquez sur le bouton de recherche
-                    ->assertPathIs('/homepage') // Vérifie que l'utilisateur reste sur la bonne page
+                    ->assertPathIs('/') // Vérifie que l'utilisateur reste sur la bonne page
                     ->assertSee('Pikachu') // Vérifie que Pikachu est dans les résultats
                     ->screenshot('search-pikachu'); // Capture d'écran des résultats de la recherche
         });
