@@ -1,3 +1,53 @@
+Rapport sur le Processus de Tests avec Laravel Dusk
+Introduction
+
+Ce rapport documente le processus de mise en place et d'exécution des tests avec Laravel Dusk pour une application Laravel. Il couvre toutes les étapes de la configuration initiale, la création de tests, les difficultés rencontrées, et les solutions apportées pour résoudre les problèmes.
+
+
+1. Mise en place initiale
+Nous avons commencé par installer Laravel Dusk, un outil de tests automatisés pour les applications Laravel. L'installation a été réalisée via Composer avec la commande :
+```bash
+composer require --dev laravel/dusk
+```
+Après l'installation, nous avons initialisé Dusk avec la commande :
+```bash
+php artisan dusk:install
+```
+
+2. Création des Tests
+Une fois Laravel Dusk installé, nous avons créé plusieurs tests pour différentes pages de l'application. Voici les principaux tests que nous avons écrits :
+2.1 Test de la Page d'Accueil
+Nous avons créé un test pour vérifier que la page d'accueil de l'application s'affiche correctement et que la fonctionnalité de recherche de Pokémon fonctionne comme prévu.
+Commandes utilisées pour créer et exécuter le test :
+```bash
+php artisan dusk:make HomepageTest
+php artisan dusk
+```
+
+2.2 Test de la Page de Connexion
+Un autre test a été créé pour vérifier que la page de connexion fonctionne correctement, permettant aux utilisateurs de se connecter avec leurs informations d'identification.
+Commandes utilisées pour créer et exécuter le test :
+```bash
+php artisan dusk:make LoginTest
+php artisan dusk
+```
+
+3. Difficultés rencontrées
+Lors du processus de configuration et d'exécution des tests, plusieurs difficultés ont été rencontrées :
+3.1 Extension PHP manquante : ext-zip
+Lors de l'installation de Laravel Dusk, une erreur est survenue indiquant que l'extension PHP ext-zip était manquante. Pour résoudre ce problème, nous avons activé l'extension ext-zip dans le fichier php.ini et relancé l'installation.
+
+
+3.2 Incompatibilité de Version de ChromeDriver
+Un autre problème est survenu lors de l'exécution des tests, où Laravel Dusk ne parvenait pas à se connecter à ChromeDriver. Cela était dû à une incompatibilité entre la version de Chrome installée et la version de ChromeDriver. Nous avons résolu ce problème en téléchargeant manuellement la version appropriée de ChromeDriver.
+
+
+3.3 Utilisation de Firefox au lieu de Chrome
+Nous avons également rencontré des difficultés en tentant d'exécuter les tests avec Firefox au lieu de Chrome. Cela nécessitait l'installation et la configuration de GeckoDriver. Après avoir téléchargé GeckoDriver et configuré Laravel Dusk pour l'utiliser, nous avons pu exécuter les tests avec Firefox.
+
+Conclusion
+Malgré les défis rencontrés, j’ai réussi à configurer un environnement de tests automatisés efficace avec Laravel Dusk. Les tests créés vérifient les fonctionnalités critiques de l'application, garantissant que celle-ci fonctionne comme prévu. L'utilisation de tests automatisés comme ceux-ci permet de réduire le risque de régression lors des mises à jour et des ajouts de nouvelles fonctionnalités.
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
